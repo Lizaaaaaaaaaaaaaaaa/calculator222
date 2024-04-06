@@ -26,7 +26,7 @@ namespace Calculator
                 string f = (Console.ReadLine());
                 switch (f) {
                     case "1":
-                        Console.WriteLine("Выбирите оперцию: 10 ^ x; x ^ y; x ^ 2; # х; сложение [+]; вычитание [-]; деление [:]; умножение [*]");
+                        Console.WriteLine("Выбирите оперцию: x ^ y; # х; сложение [+]; вычитание [-]; деление [:]; умножение [*]");
                         break;
 
                     case "2":
@@ -48,10 +48,40 @@ namespace Calculator
                             }
                             Print(Convert.ToString(result));
                         }
+                        else if (choice == "-")
+                        {
+                            result = Wht[0];
+                            foreach(int ele in Wht)
+                            {
+                            result = (result - ele);
+                            }
+                            result = result + Wht[0];
+                            Print(Convert.ToString(result));
+                        }
+                        else if (choice == "*")
+                        {
+                            result = Wht[0];
+                            foreach(int ele in Wht)
+                            {
+                            result = (result * ele);
+                            }
+                            result = result / Wht[0];
+                            Print(Convert.ToString(result));
+                        }
+                        else if (choice == ":")
+                        {
+                            result = Wht[0];
+                            foreach(int ele in Wht)
+                            {
+                            result = (result / ele);
+                            }
+                            result = result * Wht[0];
+                            Print(Convert.ToString(result));
+                        }
                 }
 
             }
-
+Consol.ReadLine();
         }
        public static void Ptint(string Text) 
         {
