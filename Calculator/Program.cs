@@ -6,8 +6,21 @@ using System.Threading.Tasks;
 
 namespace Calculator
 {
-    class Program
-    {
+   public class Application
+   {
+       
+   }
+    public class Program {
+        {
+        public static void Menu(Operation[] operations)
+        {
+            Console.WriteLine("Новая операция:");
+            for (int i = 0; i < operations.Length; i++)
+            {
+                Operation operation = operations[i];
+                Console.WriteLine($"{i + 1}. {operation.Name}");
+            }
+        }
         static void Main(string[] args) {
             try
             {
@@ -22,24 +35,15 @@ namespace Calculator
                     Wht[gg] = Convert.ToDouble(el);
                     gg++;
                 }
-                Console.WriteLine("Выберите номер вида операции: 1.Алгебраические; 2.Тригонометрические");
-                string f = (Console.ReadLine());
-                switch (f) {
-                    case "1":
-                        Console.WriteLine("Выбирите оперцию: x ^ y; # х; сложение [+]; вычитание [-]; деление [:]; умножение [*]");
-                        break;
+                
+        public abstract class Operation
+    {
+        public abstract string Name { get; }
 
-                    case "2":
-                        Console.WriteLine("Выбирите оперцию: Sin | Cos | tan");
-                        break;
-
-                    default:
-                        Console.WriteLine("Неизвестная команда!!!!!");
-                        break;
-
-                        string choice = Console.ReadLine();
-                        double result = 0;
-
+        public abstract double Run(params double[] numbers);
+    }
+public sealed class Addition : Operation
+    public override string Name => "сложение [+]";
                         if (choice == "+")
                         {
                             foreach (int ele in Wht)
@@ -48,6 +52,9 @@ namespace Calculator
                             }
                             Print(Convert.ToString(result));
                         }
+                public sealed class Substraction : Operation
+    {
+        public override string Name => "вычитание [-]";
                         else if (choice == "-")
                         {
                             result = Wht[0];
@@ -58,6 +65,9 @@ namespace Calculator
                             result = result + Wht[0];
                             Print(Convert.ToString(result));
                         }
+                    public sealed class Multiplacation : Operation
+    {
+        public override string Name => "умножение [*]";
                         else if (choice == "*")
                         {
                             result = Wht[0];
@@ -68,6 +78,9 @@ namespace Calculator
                             result = result / Wht[0];
                             Print(Convert.ToString(result));
                         }
+                        public sealed class Division : Operation
+    {
+        public override string Name => "деление [:]";
                         else if (choice == ":")
                         {
                             result = Wht[0];
@@ -89,3 +102,25 @@ Consol.ReadLine();
         }
     }
 }
+            class ProcessCalculation
+                {
+        public static void TextLines()
+        {
+Console.WriteLine("Выберите номер вида операции: 1.Алгебраические; 2.Тригонометрические");
+                string f = (Console.ReadLine());
+                switch (f) {
+                    case "1":
+                        Console.WriteLine("Выбирите оперцию: x ^ y; # х; сложение [+]; вычитание [-]; деление [:]; умножение [*]");
+                        break;
+
+                    case "2":
+                        Console.WriteLine("Выбирите оперцию: Sin | Cos | tan");
+                        break;
+
+                    default:
+                        Console.WriteLine("Неизвестная команда!!!!!");
+                        break;
+
+                        string choice = Console.ReadLine();
+                        double result = 0;}
+        }
